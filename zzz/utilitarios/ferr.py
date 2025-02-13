@@ -44,15 +44,20 @@ def demenu(n):
 
 def create_file():
     vetor = 0
+    
     arquivo = open('real/login_register.txt', 'a')
-    arquivo.write('''
-par = login
-impar = senha ''')
+    arquivo.write('LOGINS AND PASS\n')
     arquivo.close()
     for c in range(0, len(logins2)):
-            string = ''.join(logins2[vetor])
-            arquivo = open('real/login_register.txt', 'a')
-            arquivo.write(f'\n{vetor}={string}')
+            
+            if vetor %2 == 0:
+                string = ''.join(logins2[vetor])
+                arquivo = open('real/login_register.txt', 'a')
+                arquivo.write(f'\nlogin: {string}')
+            else:
+                string = ''.join(logins2[vetor])
+                arquivo = open('real/login_register.txt', 'a')
+                arquivo.write(f'\npassword: {string}')
 
             arquivo.close()
             vetor += 1

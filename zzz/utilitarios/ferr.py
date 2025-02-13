@@ -1,6 +1,6 @@
 import os
 logins = list()
-
+logins2 = list()
 
 def linhas(msg):
     tam = len(msg) + 4
@@ -25,6 +25,8 @@ def demenu(n):
             ll = dict() 
             nick = input('login: ')
             pas = input('password: ')
+            logins2.append(nick)
+            logins2.append(pas)
             ll['nick'] = nick
             ll['password'] = pas
             logins.append(ll)
@@ -38,3 +40,20 @@ def demenu(n):
                 print('')
             else:
                 print('option invalid, try again')
+
+
+def create_file():
+    vetor = 0
+    arquivo = open('real/login_register.txt', 'a')
+    arquivo.write('''
+par = login
+impar = senha ''')
+    arquivo.close()
+    for c in range(0, len(logins2)):
+            string = ''.join(logins2[vetor])
+            arquivo = open('real/login_register.txt', 'a')
+            arquivo.write(f'\n{vetor}={string}')
+
+            arquivo.close()
+            vetor += 1
+             
